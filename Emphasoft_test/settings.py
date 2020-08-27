@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -25,7 +25,7 @@ SECRET_KEY = '@n(ub8%h5)vn8w_%8ehm03-(u(#4i(9xc&@_+2lf14^)7sqk@9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -76,19 +76,8 @@ WSGI_APPLICATION = 'Emphasoft_test.wsgi.application'
 
 DATABASES = {
     'default': {
-
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-
-        'NAME': 'empasoft_test',
-
-        'USER': 'postgres',
-
-        'PASSWORD': 'HorizonEvent',
-
-        'HOST': 'localhost',
-
-        'PORT': '5432',
-
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
